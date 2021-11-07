@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Accord" Version="3.8.2-alpha" />
+    <PackageReference Include="Accord.Controls" Version="3.8.2-alpha" />
+    <PackageReference Include="Accord.MachineLearning" Version="3.8.2-alpha" />
+    <PackageReference Include="Accord.Math" Version="3.8.2-alpha" />
+  </ItemGroup>
+
+</Project>
