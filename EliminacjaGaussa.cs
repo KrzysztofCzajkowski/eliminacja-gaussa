@@ -34,13 +34,15 @@ namespace EliminacjaGaussa
         public static List<Element> dataFlowElements { get; set; }
         public static List<Wierzcholek> dataFlowVertices { get; set; }
         public static List<Krawedz> dataFlowEdges { get; set; }
+        private static List<Element> sortedDataFlowElements { get; set;}
 
         public static void init()
         {
             dataFlowElements = new List<Element>();
             dataFlowVertices = new List<Wierzcholek>();
             dataFlowEdges = new List<Krawedz>();
-    }
+            sortedDataFlowElements = new List<Element>();
+        }
 
         /// <summary>
         /// Metoda inicjalizująca macierze wejściowe po podaniu rozmiaru N.
@@ -76,7 +78,7 @@ namespace EliminacjaGaussa
                     for (int k = i + 1; k < N + 1; k++)
                     {
                         a[j, k] += m[j, i] * a[i, k];
-                        dataFlowElements.Add(new Element(id, i, j, k, null,null,null,null,j,i,j,k,i,k));
+                        dataFlowElements.Add(new Element(id, i, j, k, null, null, null, null, j, i, j, k, i, k));
                         id++;
                         if (i <= j)
                             a_gwiazdka[i, j] = a[i, j];
@@ -84,7 +86,18 @@ namespace EliminacjaGaussa
                 }
                 b_gwiazdka[0, i] = a[i, N];
             }
-        }
+            ///<summary>
+            ///Sortowanie data flow elements
+            /// </summary>
+            dataFlowElements = dataFlowElements.OrderBy(sorted => sorted.i1).ThenBy(sorted => sorted.i2).ThenBy(sorted => sorted.i3).ToList();
 
+            ///<summary>
+            ///Nadanie poprawnych indeksów
+            /// </summary>
+            for (id = 0; id < dataFlowElements.Count; id++)
+            {
+                dataFlowElements.ElementAt(id).id = id;
+            }
+        }
     }
 }
