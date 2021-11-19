@@ -34,14 +34,12 @@ namespace EliminacjaGaussa
         public static List<Element> dataFlowElements { get; set; }
         public static List<Wierzcholek> dataFlowVertices { get; set; }
         public static List<Krawedz> dataFlowEdges { get; set; }
-        private static List<Element> sortedDataFlowElements { get; set;}
 
         public static void init()
         {
             dataFlowElements = new List<Element>();
             dataFlowVertices = new List<Wierzcholek>();
             dataFlowEdges = new List<Krawedz>();
-            sortedDataFlowElements = new List<Element>();
         }
 
         /// <summary>
@@ -66,7 +64,8 @@ namespace EliminacjaGaussa
                 {
                     if (a[i, i] != 0)
                     {
-                        m[j, i] = -a[j, i] / a[i, i];
+  
+                        //m[j, i] = -a[j, i] / a[i, i];
                         dataFlowElements.Add(new Element(id, i, j, 1, j, i, j, i, i, i, null, null, null, null));
                         id++;
                     }
@@ -75,7 +74,7 @@ namespace EliminacjaGaussa
                 }
                 for (int j = i; j < N; j++)
                 {
-                    for (int k = i + 1; k < N + 1; k++)
+                    for (int k = i + 1; k < N; k++)
                     {
                         a[j, k] += m[j, i] * a[i, k];
                         dataFlowElements.Add(new Element(id, i, j, k, null, null, null, null, j, i, j, k, i, k));
@@ -94,10 +93,10 @@ namespace EliminacjaGaussa
             ///<summary>
             ///Nadanie poprawnych indeksów
             /// </summary>
-            for (id = 0; id < dataFlowElements.Count; id++)
+            for (id = 1; id < dataFlowElements.Count + 1; id++)
             {
-                dataFlowElements.ElementAt(id).id = id;
-            }
+                dataFlowElements.ElementAt(id - 1).id = id;
+            } 
         }
     }
 }
