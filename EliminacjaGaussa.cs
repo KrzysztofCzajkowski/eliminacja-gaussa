@@ -40,7 +40,7 @@ namespace EliminacjaGaussa
             dataFlowElements = new List<Element>();
             dataFlowVertices = new List<Wierzcholek>();
             dataFlowEdges = new List<Krawedz>();
-    }
+        }
 
         /// <summary>
         /// Metoda inicjalizująca macierze wejściowe po podaniu rozmiaru N.
@@ -64,7 +64,8 @@ namespace EliminacjaGaussa
                 {
                     if (a[i, i] != 0)
                     {
-                        m[j, i] = -a[j, i] / a[i, i];
+  
+                        //m[j, i] = -a[j, i] / a[i, i];
                         dataFlowElements.Add(new Element(id, i, j, 1, j, i, j, i, i, i, null, null, null, null));
                         id++;
                     }
@@ -73,10 +74,10 @@ namespace EliminacjaGaussa
                 }
                 for (int j = i; j < N; j++)
                 {
-                    for (int k = i + 1; k < N + 1; k++)
+                    for (int k = i + 1; k < N; k++)
                     {
                         a[j, k] += m[j, i] * a[i, k];
-                        dataFlowElements.Add(new Element(id, i, j, k, null,null,null,null,j,i,j,k,i,k));
+                        dataFlowElements.Add(new Element(id, i, j, k, null, null, null, null, j, i, j, k, i, k));
                         id++;
                         if (i <= j)
                             a_gwiazdka[i, j] = a[i, j];
@@ -84,7 +85,18 @@ namespace EliminacjaGaussa
                 }
                 b_gwiazdka[0, i] = a[i, N];
             }
-        }
+            ///<summary>
+            ///Sortowanie data flow elements
+            /// </summary>
+            dataFlowElements = dataFlowElements.OrderBy(sorted => sorted.i1).ThenBy(sorted => sorted.i2).ThenBy(sorted => sorted.i3).ToList();
 
+            ///<summary>
+            ///Nadanie poprawnych indeksów
+            /// </summary>
+            for (id = 1; id < dataFlowElements.Count + 1; id++)
+            {
+                dataFlowElements.ElementAt(id - 1).id = id;
+            } 
+        }
     }
 }
