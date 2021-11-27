@@ -51,10 +51,6 @@ namespace EliminacjaGaussa
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.elementyLabel = new System.Windows.Forms.Label();
             this.elementDataGridView = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.vertexDataGridView = new System.Windows.Forms.DataGridView();
-            this.wierzcholkiLabel = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.i1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.i2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,10 +60,22 @@ namespace EliminacjaGaussa
             this.o3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.o4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.o5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oper = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.vertexDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.wierzcholkiLabel = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.krawedzieLabel = new System.Windows.Forms.Label();
+            this.krawedzDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_pocz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_koniec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kierunek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.macierzADataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzAGwiazdkaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzBGwiazdkaDataGridView)).BeginInit();
@@ -78,6 +86,8 @@ namespace EliminacjaGaussa
             ((System.ComponentModel.ISupportInitialize)(this.elementDataGridView)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vertexDataGridView)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // macierzADataGridView
@@ -318,7 +328,7 @@ namespace EliminacjaGaussa
             // 
             this.elementyLabel.AutoSize = true;
             this.elementyLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.elementyLabel.Location = new System.Drawing.Point(6, 3);
+            this.elementyLabel.Location = new System.Drawing.Point(3, 3);
             this.elementyLabel.Name = "elementyLabel";
             this.elementyLabel.Size = new System.Drawing.Size(493, 21);
             this.elementyLabel.TabIndex = 1;
@@ -340,66 +350,15 @@ namespace EliminacjaGaussa
             this.o2,
             this.o3,
             this.o4,
-            this.o5});
+            this.o5,
+            this.oper});
             this.elementDataGridView.Location = new System.Drawing.Point(6, 36);
             this.elementDataGridView.Name = "elementDataGridView";
             this.elementDataGridView.ReadOnly = true;
             this.elementDataGridView.RowHeadersVisible = false;
             this.elementDataGridView.RowTemplate.Height = 25;
-            this.elementDataGridView.Size = new System.Drawing.Size(493, 441);
+            this.elementDataGridView.Size = new System.Drawing.Size(554, 441);
             this.elementDataGridView.TabIndex = 0;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.vertexDataGridView);
-            this.tabPage3.Controls.Add(this.wierzcholkiLabel);
-            this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(911, 584);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Lista wierzchołków";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // vertexDataGridView
-            // 
-            this.vertexDataGridView.AllowUserToAddRows = false;
-            this.vertexDataGridView.AllowUserToDeleteRows = false;
-            this.vertexDataGridView.AllowUserToResizeColumns = false;
-            this.vertexDataGridView.AllowUserToResizeRows = false;
-            this.vertexDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.vertexDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.vertexDataGridView.Location = new System.Drawing.Point(3, 33);
-            this.vertexDataGridView.Name = "vertexDataGridView";
-            this.vertexDataGridView.ReadOnly = true;
-            this.vertexDataGridView.RowHeadersVisible = false;
-            this.vertexDataGridView.RowTemplate.Height = 25;
-            this.vertexDataGridView.Size = new System.Drawing.Size(210, 548);
-            this.vertexDataGridView.TabIndex = 3;
-            // 
-            // wierzcholkiLabel
-            // 
-            this.wierzcholkiLabel.AutoSize = true;
-            this.wierzcholkiLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.wierzcholkiLabel.Location = new System.Drawing.Point(3, 9);
-            this.wierzcholkiLabel.Name = "wierzcholkiLabel";
-            this.wierzcholkiLabel.Size = new System.Drawing.Size(411, 21);
-            this.wierzcholkiLabel.TabIndex = 2;
-            this.wierzcholkiLabel.Text = "Lista wierzchołków grafu zależności informacyjnych:";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(911, 584);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Lista krawędzi";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // ID
             // 
@@ -464,6 +423,45 @@ namespace EliminacjaGaussa
             this.o5.ReadOnly = true;
             this.o5.Width = 50;
             // 
+            // oper
+            // 
+            this.oper.HeaderText = "Typ operacji";
+            this.oper.Name = "oper";
+            this.oper.ReadOnly = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.vertexDataGridView);
+            this.tabPage3.Controls.Add(this.wierzcholkiLabel);
+            this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(911, 584);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Lista wierzchołków";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // vertexDataGridView
+            // 
+            this.vertexDataGridView.AllowUserToAddRows = false;
+            this.vertexDataGridView.AllowUserToDeleteRows = false;
+            this.vertexDataGridView.AllowUserToResizeColumns = false;
+            this.vertexDataGridView.AllowUserToResizeRows = false;
+            this.vertexDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vertexDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.vertexDataGridView.Location = new System.Drawing.Point(3, 33);
+            this.vertexDataGridView.Name = "vertexDataGridView";
+            this.vertexDataGridView.ReadOnly = true;
+            this.vertexDataGridView.RowHeadersVisible = false;
+            this.vertexDataGridView.RowTemplate.Height = 25;
+            this.vertexDataGridView.Size = new System.Drawing.Size(324, 548);
+            this.vertexDataGridView.TabIndex = 3;
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "ID";
@@ -492,6 +490,86 @@ namespace EliminacjaGaussa
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             this.dataGridViewTextBoxColumn4.Width = 50;
             // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Typ operacji";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 120;
+            // 
+            // wierzcholkiLabel
+            // 
+            this.wierzcholkiLabel.AutoSize = true;
+            this.wierzcholkiLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.wierzcholkiLabel.Location = new System.Drawing.Point(-4, 0);
+            this.wierzcholkiLabel.Name = "wierzcholkiLabel";
+            this.wierzcholkiLabel.Size = new System.Drawing.Size(411, 21);
+            this.wierzcholkiLabel.TabIndex = 2;
+            this.wierzcholkiLabel.Text = "Lista wierzchołków grafu zależności informacyjnych:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.krawedzDataGridView);
+            this.tabPage4.Controls.Add(this.krawedzieLabel);
+            this.tabPage4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(911, 584);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Lista krawędzi";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // krawedzieLabel
+            // 
+            this.krawedzieLabel.AutoSize = true;
+            this.krawedzieLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.krawedzieLabel.Location = new System.Drawing.Point(3, 0);
+            this.krawedzieLabel.Name = "krawedzieLabel";
+            this.krawedzieLabel.Size = new System.Drawing.Size(374, 21);
+            this.krawedzieLabel.TabIndex = 0;
+            this.krawedzieLabel.Text = "Lista krawędzi grafu zależności informacyjnych:";
+            // 
+            // krawedzDataGridView
+            // 
+            this.krawedzDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.krawedzDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.id_pocz,
+            this.id_koniec,
+            this.kierunek});
+            this.krawedzDataGridView.Location = new System.Drawing.Point(3, 24);
+            this.krawedzDataGridView.Name = "krawedzDataGridView";
+            this.krawedzDataGridView.RowHeadersVisible = false;
+            this.krawedzDataGridView.RowTemplate.Height = 25;
+            this.krawedzDataGridView.Size = new System.Drawing.Size(374, 557);
+            this.krawedzDataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 50;
+            // 
+            // id_pocz
+            // 
+            this.id_pocz.HeaderText = "ID początku";
+            this.id_pocz.Name = "id_pocz";
+            this.id_pocz.ReadOnly = true;
+            this.id_pocz.Width = 120;
+            // 
+            // id_koniec
+            // 
+            this.id_koniec.HeaderText = "ID końca";
+            this.id_koniec.Name = "id_koniec";
+            this.id_koniec.ReadOnly = true;
+            // 
+            // kierunek
+            // 
+            this.kierunek.HeaderText = "Kierunek";
+            this.kierunek.Name = "kierunek";
+            this.kierunek.ReadOnly = true;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -514,6 +592,9 @@ namespace EliminacjaGaussa
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vertexDataGridView)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -555,10 +636,18 @@ namespace EliminacjaGaussa
         private System.Windows.Forms.DataGridViewTextBoxColumn o3;
         private System.Windows.Forms.DataGridViewTextBoxColumn o4;
         private System.Windows.Forms.DataGridViewTextBoxColumn o5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oper;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Label krawedzieLabel;
+        private System.Windows.Forms.DataGridView krawedzDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_pocz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_koniec;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kierunek;
     }
 }
 

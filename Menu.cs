@@ -43,7 +43,8 @@ namespace EliminacjaGaussa
                     element.o2Prop,
                     element.o3Prop,
                     element.o4Prop,
-                    element.o5Prop
+                    element.o5Prop,
+                    element.typOperacji == Operacja.MNOZENIE ? "* +" : "/"
                 });
             }
         }
@@ -58,9 +59,34 @@ namespace EliminacjaGaussa
                     element.id.ToString(),
                     element.i1.ToString(),
                     element.i2.ToString(),
-                    element.i3.ToString()
+                    element.i3.ToString(),
+                    element.typOperacji == Operacja.MNOZENIE ? "* +" : "/"
                 };
                 vertexDataGridView.Rows.Add(row);
+            }
+        }
+
+        public void UpdateEdgeList()
+        {
+            krawedzDataGridView.Rows.Clear();
+            foreach (var element in EliminacjaGaussa.dataFlowEdges)
+            {
+                
+                string[] row =
+                {
+                    element.id.ToString(),
+                    element.poczatek.ToString(),
+                    element.koniec.ToString(),
+                    element.kierunek switch
+                    {
+                        Kierunek.I1 => "i1",
+                        Kierunek.I2 => "i2",
+                        Kierunek.I3 => "i3",
+                        Kierunek.I1I2 => "i1 i2",
+                        _ => ""
+                    }
+                };
+                krawedzDataGridView.Rows.Add(row);
             }
         }
 
@@ -77,6 +103,7 @@ namespace EliminacjaGaussa
         {
             EliminacjaGaussa.N = int.Parse(nTextBox.Text);
             EliminacjaGaussa.utworzMacierze();
+            EliminacjaGaussa.clear();
             try
             {
                 macierzADataGridView.DataSource = new ArrayDataView(EliminacjaGaussa.a);
@@ -105,9 +132,10 @@ namespace EliminacjaGaussa
             macierzBGwiazdkaDataGridView.AutoResizeColumns();
             macierzMDataGridView.AutoResizeColumns();
             elementDataGridView.AutoResizeColumns();
-            EliminacjaGaussa.dataFlowElements.OrderBy(e => i1).ThenBy(e => i2).ThenBy(e => i3);
+            EliminacjaGaussa.sortuj();
             UpdateElementList();
             UpdateVertexList();
+            UpdateEdgeList();
         }
 
         private void wczytajAButton_Click(object sender, EventArgs e)
@@ -115,6 +143,8 @@ namespace EliminacjaGaussa
             string filePath = string.Empty;
             string linia = string.Empty;
             string[] wiersz = null;
+
+            EliminacjaGaussa.clear();
 
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -208,7 +238,7 @@ namespace EliminacjaGaussa
                         int i;
                         for (i = 0; i < EliminacjaGaussa.N; i++)
                         {
-                            writer.Write("{0}", EliminacjaGaussa.b_gwiazdka[0, i]);
+                            writer.Write("{0}", EliminacjaGaussa.b_gwiazdka[i]);
                             writer.WriteLine(EliminacjaGaussa.N);
                         }
                     }

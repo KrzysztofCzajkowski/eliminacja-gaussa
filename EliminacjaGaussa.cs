@@ -26,7 +26,7 @@ namespace EliminacjaGaussa
         /// <summary>
         /// Macierz B* wyrazów wolnych będąca częścią wyniku rozkładu Gaussa.
         /// </summary>
-        public static double[,] b_gwiazdka;
+        public static double[] b_gwiazdka;
         /// <summary>
         /// Macierz trójkątna dolna M potrzebna przy obliczeniach macierzy wynikowych.
         /// </summary>
@@ -42,6 +42,13 @@ namespace EliminacjaGaussa
             dataFlowEdges = new List<Krawedz>();
         }
 
+        public static void clear()
+        {
+            dataFlowElements.Clear();
+            dataFlowVertices.Clear();
+            dataFlowEdges.Clear();
+        }
+
         /// <summary>
         /// Metoda inicjalizująca macierze wejściowe po podaniu rozmiaru N.
         /// </summary>
@@ -49,7 +56,7 @@ namespace EliminacjaGaussa
         {
             a = new double[N, N + 1]; // macierz rozszerzona A|B
             a_gwiazdka = new double[N, N];
-            b_gwiazdka = new double[1, N];
+            b_gwiazdka = new double[N];
             m = new double[N, N];
         }
         /// <summary>
@@ -58,45 +65,83 @@ namespace EliminacjaGaussa
         public static void oblicz()
         {
             int id = 1;
-            for (int i = 0; i < N; i++)
+            for (int i = 0; i < N-1; i++)
             {
                 for (int j = i + 1; j < N; j++)
                 {
                     if (a[i, i] != 0)
                     {
   
-                        //m[j, i] = -a[j, i] / a[i, i];
-                        dataFlowElements.Add(new Element(id, i, j, 1, j, i, j, i, i, i, null, null, null, null));
+                        m[j, i] = -a[j, i] / a[i, i];
+                        dataFlowElements.Add(new Element(id, i, j, i, Operacja.DZIELENIE, j, i, j, i, i, i, null, null, null, null));
                         id++;
                     }
                     else
                         m[j, i] = 0;
                 }
-                for (int j = i; j < N; j++)
+                for (int j = i + 1; j < N; j++)
                 {
-                    for (int k = i + 1; k < N; k++)
+                    for (int k = i + 1; k < N + 1; k++)
                     {
                         a[j, k] += m[j, i] * a[i, k];
-                        dataFlowElements.Add(new Element(id, i, j, k, null, null, null, null, j, i, j, k, i, k));
+                        dataFlowElements.Add(new Element(id, i, j, k, Operacja.MNOZENIE, null, null, null, null, j, i, j, k, i, k));
                         id++;
                         if (i <= j)
                             a_gwiazdka[i, j] = a[i, j];
                     }
                 }
-                b_gwiazdka[0, i] = a[i, N];
+                b_gwiazdka[i] = a[i, N];
             }
-            ///<summary>
-            ///Sortowanie data flow elements
-            /// </summary>
+        }
+
+        public static void sortuj()
+        {
+            // Sortowanie data flow elements
             dataFlowElements = dataFlowElements.OrderBy(sorted => sorted.i1).ThenBy(sorted => sorted.i2).ThenBy(sorted => sorted.i3).ToList();
 
-            ///<summary>
-            ///Nadanie poprawnych indeksów
-            /// </summary>
-            for (id = 1; id < dataFlowElements.Count + 1; id++)
+            // Nadanie poprawnych indeksów
+            for (int i = 1; i < dataFlowElements.Count + 1; i++)
             {
-                dataFlowElements.ElementAt(id - 1).id = id;
-            } 
+                dataFlowElements.ElementAt(i - 1).id = i;
+            }
+
+            int id = 1;
+            Element elementA = null;
+            Element elementB = null;
+
+            // Znalezienie krawędzi
+            for (int i = 1; i <= dataFlowElements.Count; i++)
+            {
+                for (int j = 1; j <= dataFlowElements.Count; j++)
+                {
+                    elementA = dataFlowElements[i - 1];
+                    elementB = dataFlowElements[j - 1];
+                    // krawędź w kierunku i1 i2
+                    if ((elementA.i1 == elementB.i1 - 1) && (elementA.i2 == elementB.i2 - 1) && (elementA.i3 == elementB.i3) && elementA.o4Prop.Equals(elementB.o3Prop))
+                    {
+                        dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I1I2));
+                        id++;
+                    }
+                    // krawędź w kierunku i1
+                    else if ((elementA.i1 == elementB.i1 - 1) && (elementA.i2 == elementB.i2) && (elementA.i3 == elementB.i3) && elementA.o4Prop.Equals(elementB.o2Prop))
+                    {
+                        dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I1));
+                        id++;
+                    }
+                    // krawędź w kierunku i2
+                    else if ((elementA.i2 == elementB.i2 - 1) && (elementA.i1 == elementB.i1) && (elementA.i3 == elementB.i3) && elementA.o5Prop.Equals(elementB.o5Prop))
+                    {
+                        dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I2));
+                        id++;
+                    }
+                    // krawędź w kierunku i3
+                    else if ((elementA.i3 == elementB.i3 - 1) && (elementA.i1 == elementB.i1) && (elementA.i2 == elementB.i2) && elementA.o2Prop.Equals(elementB.o3Prop))
+                    {
+                        dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I3));
+                        id++;
+                    }
+                }
+            }
         }
     }
 }

@@ -16,6 +16,7 @@ namespace EliminacjaGaussa
         public int i1 { get; set; }
         public int i2 { get; set; }
         public int i3 { get; set; }
+        public Operacja typOperacji { get; set; }
 
         private Tuple<int?, int?> o1;
 
@@ -52,20 +53,22 @@ namespace EliminacjaGaussa
             get { return new String(o5.Item1.ToString() + "   " + o5.Item2.ToString()); }
         }
 
-        public Element(int id, int i1, int i2, int i3)
+        public Element(int id, int i1, int i2, int i3, Operacja typOperacji)
         {
             this.id = id;
             this.i1 = i1;
             this.i2 = i2;
             this.i3 = i3;
+            this.typOperacji = typOperacji;
         }
 
-        public Element(int id, int i1,int i2, int i3, int? o11, int? o12, int? o21, int? o22, int? o31, int? o32, int? o41, int? o42, int? o51, int? o52)
+        public Element(int id, int i1,int i2, int i3, Operacja typOperacji, int? o11, int? o12, int? o21, int? o22, int? o31, int? o32, int? o41, int? o42, int? o51, int? o52)
         {
             this.id = id;
             this.i1 = i1;
             this.i2 = i2;
             this.i3 = i3;
+            this.typOperacji = typOperacji;
             o1 = new Tuple<int?, int?>(o11, o12);
             o2 = new Tuple<int?, int?>(o21, o22);
             o3 = new Tuple<int?, int?>(o31, o32);
