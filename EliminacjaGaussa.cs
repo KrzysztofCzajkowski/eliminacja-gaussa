@@ -31,6 +31,37 @@ namespace EliminacjaGaussa
         /// Macierz trójkątna dolna M potrzebna przy obliczeniach macierzy wynikowych.
         /// </summary>
         public static double[,] m;
+        /// <summary>
+        /// Macierz D.
+        /// </summary>
+        public static double[,] D = new double[3, 4]
+        {
+            {1,0,0,1},
+            {0,1,0,1},
+            {0,0,1,0}
+        };
+        public static double[,] Fs1 = new double[2, 3]
+        {
+            {-1,  0, 1},
+            {1, -1, 1}
+        };
+        public static double[,] Fs1D = new double[2, 3];
+
+        public static double[,] Fs2 = new double[2, 3]
+        {
+            { -1,  1, 1},
+            {-1, 1, 0}
+        };
+        public static double[,] Fs2D = new double[2, 3];
+        public static double[,] Fs3 = new double[1, 3]
+        {
+            {-1, 0, 1}
+        };
+        public static double[,] Fs3D = new double[2, 3];
+        public static double[,] Ft = new double[1, 3]
+        {
+            {1, 1, 1}
+        };
         public static List<Element> dataFlowElements { get; set; }
         public static List<Wierzcholek> dataFlowVertices { get; set; }
         public static List<Krawedz> dataFlowEdges { get; set; }
@@ -65,6 +96,7 @@ namespace EliminacjaGaussa
         public static void oblicz()
         {
             int id = 1;
+            
             for (int i = 0; i < N-1; i++)
             {
                 for (int j = i + 1; j < N; j++)
@@ -90,8 +122,11 @@ namespace EliminacjaGaussa
                             a_gwiazdka[i, j] = a[i, j];
                     }
                 }
-                b_gwiazdka[i] = a[i, N];
+                b_gwiazdka[i] = a[i, N-1];
             }
+            b_gwiazdka[N-1] = a[N-1, N-1];
+            for (int k = 0; k < N; k++)
+                a_gwiazdka[k, k] = a[k, k];
         }
 
         public static void sortuj()
@@ -142,6 +177,41 @@ namespace EliminacjaGaussa
                     }
                 }
             }
+        }
+
+        public static double[,] mnozeniePrzezD(double[,] macierz)
+        {
+            double[,] wynik = new double[macierz.GetLength(0), 4];
+            for (int i = 0; i < macierz.GetLength(0); i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    for (int k = 0; k < macierz.GetLength(1); k++)
+                    {
+                        wynik[i,j] += macierz[i, k] * D[k, j];
+                    }
+                }
+            }
+            return wynik;
+        }
+
+    public static bool sprawdzMacierz(double[,] macierz)
+        {
+            double suma;
+            for (int i = 0; i < macierz.GetLength(0); i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    suma = 0;
+                    for (int k = 0; k < macierz.GetLength(1); k++)
+                    {
+                        suma += macierz[i, k] * D[k, j];
+                        if (suma != -1 && suma != 0 && suma != 1)
+                            return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 }

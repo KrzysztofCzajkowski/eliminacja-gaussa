@@ -136,6 +136,18 @@ namespace EliminacjaGaussa
             UpdateElementList();
             UpdateVertexList();
             UpdateEdgeList();
+            EliminacjaGaussa.Fs1D = EliminacjaGaussa.mnozeniePrzezD(EliminacjaGaussa.Fs1);
+            EliminacjaGaussa.Fs2D = EliminacjaGaussa.mnozeniePrzezD(EliminacjaGaussa.Fs2);
+            EliminacjaGaussa.Fs3D = EliminacjaGaussa.mnozeniePrzezD(EliminacjaGaussa.Fs3);
+            wypiszMacierze();
+            if (EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs1) && EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs2) && EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs3))
+            {
+                //placeholder
+            }
+            else
+            {
+                //placeholder
+            }
         }
 
         private void wczytajAButton_Click(object sender, EventArgs e)
@@ -244,6 +256,66 @@ namespace EliminacjaGaussa
                     }
                 }
             }
+        }
+
+        private void wypiszMacierze()
+        {
+            fs1ValueLabel.Text = "";
+            fs2ValueLabel.Text = "";
+            fs3ValueLabel.Text = "";
+            fs1DValueLabel.Text = "";
+            fs2DValueLabel.Text = "";
+            fs3DValueLabel.Text = "";
+            dValueLabel.Text = "";
+            for (int i=0;i<EliminacjaGaussa.Fs1.GetLength(0);i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.Fs1.GetLength(1); j++)
+                    fs1ValueLabel.Text += EliminacjaGaussa.Fs1[i, j].ToString() + "  ";
+                fs1ValueLabel.Text += "\n";
+            }
+
+            for (int i = 0; i < EliminacjaGaussa.Fs2.GetLength(0); i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.Fs2.GetLength(1); j++)
+                    fs2ValueLabel.Text += EliminacjaGaussa.Fs2[i, j].ToString() + "  ";
+                fs2ValueLabel.Text += "\n";
+            }
+
+            for (int i = 0; i < EliminacjaGaussa.Fs3.GetLength(0); i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.Fs3.GetLength(1); j++)
+                    fs3ValueLabel.Text += EliminacjaGaussa.Fs3[i, j].ToString() + "  ";
+                fs3ValueLabel.Text += "\n";
+            }
+
+            for (int i = 0; i < EliminacjaGaussa.Fs1D.GetLength(0); i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.Fs1D.GetLength(1); j++)
+                    fs1DValueLabel.Text += EliminacjaGaussa.Fs1D[i, j].ToString() + "  ";
+                fs1DValueLabel.Text += "\n";
+            }
+
+            for (int i = 0; i < EliminacjaGaussa.Fs2D.GetLength(0); i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.Fs2D.GetLength(1); j++)
+                    fs2DValueLabel.Text += EliminacjaGaussa.Fs2D[i, j].ToString() + "  ";
+                fs2DValueLabel.Text += "\n";
+            }
+
+            for (int i = 0; i < EliminacjaGaussa.Fs3D.GetLength(0); i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.Fs3D.GetLength(1); j++)
+                    fs3DValueLabel.Text += EliminacjaGaussa.Fs3D[i, j].ToString() + "  ";
+                fs3DValueLabel.Text += "\n";
+            }
+
+            for (int i = 0; i < EliminacjaGaussa.D.GetLength(0); i++)
+            {
+                for (int j = 0; j < EliminacjaGaussa.D.GetLength(1); j++)
+                    dValueLabel.Text += EliminacjaGaussa.D[i, j].ToString() + "  ";
+                dValueLabel.Text += "\n";
+            }
+
         }
     }
 }

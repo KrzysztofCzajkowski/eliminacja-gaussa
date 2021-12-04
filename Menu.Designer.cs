@@ -70,12 +70,29 @@ namespace EliminacjaGaussa
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.wierzcholkiLabel = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.krawedzieLabel = new System.Windows.Forms.Label();
             this.krawedzDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_pocz = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_koniec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kierunek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.krawedzieLabel = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dLabel = new System.Windows.Forms.Label();
+            this.dValueLabel = new System.Windows.Forms.Label();
+            this.fs3ValueLabel = new System.Windows.Forms.Label();
+            this.fs2ValueLabel = new System.Windows.Forms.Label();
+            this.fs3Label = new System.Windows.Forms.Label();
+            this.fs2Label = new System.Windows.Forms.Label();
+            this.fs1ValueLabel = new System.Windows.Forms.Label();
+            this.fs1Label = new System.Windows.Forms.Label();
+            this.ftLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fs1DValueLabel = new System.Windows.Forms.Label();
+            this.fs1DLabel = new System.Windows.Forms.Label();
+            this.fs2DValueLabel = new System.Windows.Forms.Label();
+            this.fs2DLabel = new System.Windows.Forms.Label();
+            this.fs3DValueLabel = new System.Windows.Forms.Label();
+            this.fs3DLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.macierzADataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzAGwiazdkaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzBGwiazdkaDataGridView)).BeginInit();
@@ -88,6 +105,7 @@ namespace EliminacjaGaussa
             ((System.ComponentModel.ISupportInitialize)(this.vertexDataGridView)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).BeginInit();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // macierzADataGridView
@@ -224,6 +242,7 @@ namespace EliminacjaGaussa
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -519,16 +538,6 @@ namespace EliminacjaGaussa
             this.tabPage4.Text = "Lista krawędzi";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // krawedzieLabel
-            // 
-            this.krawedzieLabel.AutoSize = true;
-            this.krawedzieLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.krawedzieLabel.Location = new System.Drawing.Point(3, 0);
-            this.krawedzieLabel.Name = "krawedzieLabel";
-            this.krawedzieLabel.Size = new System.Drawing.Size(374, 21);
-            this.krawedzieLabel.TabIndex = 0;
-            this.krawedzieLabel.Text = "Lista krawędzi grafu zależności informacyjnych:";
-            // 
             // krawedzDataGridView
             // 
             this.krawedzDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -570,6 +579,201 @@ namespace EliminacjaGaussa
             this.kierunek.Name = "kierunek";
             this.kierunek.ReadOnly = true;
             // 
+            // krawedzieLabel
+            // 
+            this.krawedzieLabel.AutoSize = true;
+            this.krawedzieLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.krawedzieLabel.Location = new System.Drawing.Point(3, 0);
+            this.krawedzieLabel.Name = "krawedzieLabel";
+            this.krawedzieLabel.Size = new System.Drawing.Size(374, 21);
+            this.krawedzieLabel.TabIndex = 0;
+            this.krawedzieLabel.Text = "Lista krawędzi grafu zależności informacyjnych:";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.fs3DValueLabel);
+            this.tabPage5.Controls.Add(this.fs3DLabel);
+            this.tabPage5.Controls.Add(this.fs2DValueLabel);
+            this.tabPage5.Controls.Add(this.fs2DLabel);
+            this.tabPage5.Controls.Add(this.fs1DValueLabel);
+            this.tabPage5.Controls.Add(this.fs1DLabel);
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Controls.Add(this.ftLabel);
+            this.tabPage5.Controls.Add(this.dLabel);
+            this.tabPage5.Controls.Add(this.dValueLabel);
+            this.tabPage5.Controls.Add(this.fs3ValueLabel);
+            this.tabPage5.Controls.Add(this.fs2ValueLabel);
+            this.tabPage5.Controls.Add(this.fs3Label);
+            this.tabPage5.Controls.Add(this.fs2Label);
+            this.tabPage5.Controls.Add(this.fs1ValueLabel);
+            this.tabPage5.Controls.Add(this.fs1Label);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(911, 584);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Macierze Fs, Ft, D";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dLabel
+            // 
+            this.dLabel.AutoSize = true;
+            this.dLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dLabel.Location = new System.Drawing.Point(13, 317);
+            this.dLabel.Name = "dLabel";
+            this.dLabel.Size = new System.Drawing.Size(26, 25);
+            this.dLabel.TabIndex = 7;
+            this.dLabel.Text = "D";
+            // 
+            // dValueLabel
+            // 
+            this.dValueLabel.AutoSize = true;
+            this.dValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dValueLabel.Location = new System.Drawing.Point(13, 342);
+            this.dValueLabel.Name = "dValueLabel";
+            this.dValueLabel.Size = new System.Drawing.Size(75, 25);
+            this.dValueLabel.TabIndex = 6;
+            this.dValueLabel.Text = "D value";
+            // 
+            // fs3ValueLabel
+            // 
+            this.fs3ValueLabel.AutoSize = true;
+            this.fs3ValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs3ValueLabel.Location = new System.Drawing.Point(13, 230);
+            this.fs3ValueLabel.Name = "fs3ValueLabel";
+            this.fs3ValueLabel.Size = new System.Drawing.Size(94, 25);
+            this.fs3ValueLabel.TabIndex = 5;
+            this.fs3ValueLabel.Text = "Fs 3 value";
+            // 
+            // fs2ValueLabel
+            // 
+            this.fs2ValueLabel.AutoSize = true;
+            this.fs2ValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs2ValueLabel.Location = new System.Drawing.Point(13, 130);
+            this.fs2ValueLabel.Name = "fs2ValueLabel";
+            this.fs2ValueLabel.Size = new System.Drawing.Size(94, 25);
+            this.fs2ValueLabel.TabIndex = 4;
+            this.fs2ValueLabel.Text = "Fs 2 value";
+            // 
+            // fs3Label
+            // 
+            this.fs3Label.AutoSize = true;
+            this.fs3Label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs3Label.Location = new System.Drawing.Point(13, 205);
+            this.fs3Label.Name = "fs3Label";
+            this.fs3Label.Size = new System.Drawing.Size(46, 25);
+            this.fs3Label.TabIndex = 3;
+            this.fs3Label.Text = "Fs 3";
+            // 
+            // fs2Label
+            // 
+            this.fs2Label.AutoSize = true;
+            this.fs2Label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs2Label.Location = new System.Drawing.Point(13, 105);
+            this.fs2Label.Name = "fs2Label";
+            this.fs2Label.Size = new System.Drawing.Size(46, 25);
+            this.fs2Label.TabIndex = 2;
+            this.fs2Label.Text = "Fs 2";
+            // 
+            // fs1ValueLabel
+            // 
+            this.fs1ValueLabel.AutoSize = true;
+            this.fs1ValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs1ValueLabel.Location = new System.Drawing.Point(13, 36);
+            this.fs1ValueLabel.Name = "fs1ValueLabel";
+            this.fs1ValueLabel.Size = new System.Drawing.Size(94, 25);
+            this.fs1ValueLabel.TabIndex = 1;
+            this.fs1ValueLabel.Text = "Fs 1 value";
+            // 
+            // fs1Label
+            // 
+            this.fs1Label.AutoSize = true;
+            this.fs1Label.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs1Label.Location = new System.Drawing.Point(13, 11);
+            this.fs1Label.Name = "fs1Label";
+            this.fs1Label.Size = new System.Drawing.Size(46, 25);
+            this.fs1Label.TabIndex = 0;
+            this.fs1Label.Text = "Fs 1";
+            // 
+            // ftLabel
+            // 
+            this.ftLabel.AutoSize = true;
+            this.ftLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ftLabel.Location = new System.Drawing.Point(13, 255);
+            this.ftLabel.Name = "ftLabel";
+            this.ftLabel.Size = new System.Drawing.Size(29, 25);
+            this.ftLabel.TabIndex = 8;
+            this.ftLabel.Text = "Ft";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(13, 280);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "1  1  1";
+            // 
+            // fs1DValueLabel
+            // 
+            this.fs1DValueLabel.AutoSize = true;
+            this.fs1DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs1DValueLabel.Location = new System.Drawing.Point(210, 36);
+            this.fs1DValueLabel.Name = "fs1DValueLabel";
+            this.fs1DValueLabel.Size = new System.Drawing.Size(130, 25);
+            this.fs1DValueLabel.TabIndex = 11;
+            this.fs1DValueLabel.Text = "Fs 1 * D  value";
+            // 
+            // fs1DLabel
+            // 
+            this.fs1DLabel.AutoSize = true;
+            this.fs1DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs1DLabel.Location = new System.Drawing.Point(210, 11);
+            this.fs1DLabel.Name = "fs1DLabel";
+            this.fs1DLabel.Size = new System.Drawing.Size(79, 25);
+            this.fs1DLabel.TabIndex = 10;
+            this.fs1DLabel.Text = "Fs 1 * D";
+            // 
+            // fs2DValueLabel
+            // 
+            this.fs2DValueLabel.AutoSize = true;
+            this.fs2DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs2DValueLabel.Location = new System.Drawing.Point(210, 130);
+            this.fs2DValueLabel.Name = "fs2DValueLabel";
+            this.fs2DValueLabel.Size = new System.Drawing.Size(130, 25);
+            this.fs2DValueLabel.TabIndex = 13;
+            this.fs2DValueLabel.Text = "Fs 2 * D  value";
+            // 
+            // fs2DLabel
+            // 
+            this.fs2DLabel.AutoSize = true;
+            this.fs2DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs2DLabel.Location = new System.Drawing.Point(210, 105);
+            this.fs2DLabel.Name = "fs2DLabel";
+            this.fs2DLabel.Size = new System.Drawing.Size(79, 25);
+            this.fs2DLabel.TabIndex = 12;
+            this.fs2DLabel.Text = "Fs 2 * D";
+            // 
+            // fs3DValueLabel
+            // 
+            this.fs3DValueLabel.AutoSize = true;
+            this.fs3DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs3DValueLabel.Location = new System.Drawing.Point(210, 230);
+            this.fs3DValueLabel.Name = "fs3DValueLabel";
+            this.fs3DValueLabel.Size = new System.Drawing.Size(130, 25);
+            this.fs3DValueLabel.TabIndex = 15;
+            this.fs3DValueLabel.Text = "Fs 3 * D  value";
+            // 
+            // fs3DLabel
+            // 
+            this.fs3DLabel.AutoSize = true;
+            this.fs3DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs3DLabel.Location = new System.Drawing.Point(210, 205);
+            this.fs3DLabel.Name = "fs3DLabel";
+            this.fs3DLabel.Size = new System.Drawing.Size(79, 25);
+            this.fs3DLabel.TabIndex = 14;
+            this.fs3DLabel.Text = "Fs 3 * D";
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -595,6 +799,8 @@ namespace EliminacjaGaussa
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -648,6 +854,23 @@ namespace EliminacjaGaussa
         private System.Windows.Forms.DataGridViewTextBoxColumn id_pocz;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_koniec;
         private System.Windows.Forms.DataGridViewTextBoxColumn kierunek;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label fs1ValueLabel;
+        private System.Windows.Forms.Label fs1Label;
+        private System.Windows.Forms.Label dLabel;
+        private System.Windows.Forms.Label dValueLabel;
+        private System.Windows.Forms.Label fs3ValueLabel;
+        private System.Windows.Forms.Label fs2ValueLabel;
+        private System.Windows.Forms.Label fs3Label;
+        private System.Windows.Forms.Label fs2Label;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ftLabel;
+        private System.Windows.Forms.Label fs3DValueLabel;
+        private System.Windows.Forms.Label fs3DLabel;
+        private System.Windows.Forms.Label fs2DValueLabel;
+        private System.Windows.Forms.Label fs2DLabel;
+        private System.Windows.Forms.Label fs1DValueLabel;
+        private System.Windows.Forms.Label fs1DLabel;
     }
 }
 
