@@ -90,6 +90,57 @@ namespace EliminacjaGaussa
             }
         }
 
+        public void UpdateMP1List()
+        {
+            mp1DataGridView.Rows.Clear();
+            foreach (var element in EliminacjaGaussa.macierzProcesorowa1)
+            {
+                mp1DataGridView.Rows.Add(new string[]{
+                    element.ID.ToString(),
+                    element.X.ToString(),
+                    element.Y.ToString(),
+                    element.T.ToString(),
+                    element.I1.ToString(),
+                    element.I2.ToString(),
+                    element.I3.ToString()
+                });
+            }
+        }
+
+        public void UpdateMP2List()
+        {
+            mp2DataGridView.Rows.Clear();
+            foreach (var element in EliminacjaGaussa.macierzProcesorowa2)
+            {
+                mp2DataGridView.Rows.Add(new string[]{
+                    element.ID.ToString(),
+                    element.X.ToString(),
+                    element.Y.ToString(),
+                    element.T.ToString(),
+                    element.I1.ToString(),
+                    element.I2.ToString(),
+                    element.I3.ToString()
+                });
+            }
+        }
+
+        public void UpdateMP3List()
+        {
+            mp3DataGridView.Rows.Clear();
+            foreach (var element in EliminacjaGaussa.macierzProcesorowa3)
+            {
+                mp3DataGridView.Rows.Add(new string[]{
+                    element.ID.ToString(),
+                    element.X.ToString(),
+                    element.Y.ToString(),
+                    element.T.ToString(),
+                    element.I1.ToString(),
+                    element.I2.ToString(),
+                    element.I3.ToString()
+                });
+            }
+        }
+
         /// <summary>
         /// Metoda inicjalizująca Menu.
         /// </summary>
@@ -121,6 +172,7 @@ namespace EliminacjaGaussa
         /// </summary>
         private void obliczButton_Click(object sender, EventArgs e)
         {
+            EliminacjaGaussa.clear();
             Stopwatch stoper = Stopwatch.StartNew();
             EliminacjaGaussa.oblicz();
             stoper.Stop();
@@ -142,11 +194,14 @@ namespace EliminacjaGaussa
             wypiszMacierze();
             if (EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs1) && EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs2) && EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs3))
             {
-                //placeholder
+                EliminacjaGaussa.wyznaczMacierzProcesorowe();
+                UpdateMP1List();
+                UpdateMP2List();
+                UpdateMP3List();
             }
             else
             {
-                //placeholder
+                MessageBox.Show("Ups coś poszło nie tak");
             }
         }
 

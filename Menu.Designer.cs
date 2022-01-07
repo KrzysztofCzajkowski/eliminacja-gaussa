@@ -77,6 +77,14 @@ namespace EliminacjaGaussa
             this.kierunek = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.krawedzieLabel = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.fs3DValueLabel = new System.Windows.Forms.Label();
+            this.fs3DLabel = new System.Windows.Forms.Label();
+            this.fs2DValueLabel = new System.Windows.Forms.Label();
+            this.fs2DLabel = new System.Windows.Forms.Label();
+            this.fs1DValueLabel = new System.Windows.Forms.Label();
+            this.fs1DLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ftLabel = new System.Windows.Forms.Label();
             this.dLabel = new System.Windows.Forms.Label();
             this.dValueLabel = new System.Windows.Forms.Label();
             this.fs3ValueLabel = new System.Windows.Forms.Label();
@@ -85,14 +93,36 @@ namespace EliminacjaGaussa
             this.fs2Label = new System.Windows.Forms.Label();
             this.fs1ValueLabel = new System.Windows.Forms.Label();
             this.fs1Label = new System.Windows.Forms.Label();
-            this.ftLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.fs1DValueLabel = new System.Windows.Forms.Label();
-            this.fs1DLabel = new System.Windows.Forms.Label();
-            this.fs2DValueLabel = new System.Windows.Forms.Label();
-            this.fs2DLabel = new System.Windows.Forms.Label();
-            this.fs3DValueLabel = new System.Windows.Forms.Label();
-            this.fs3DLabel = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.mp1DataGridView = new System.Windows.Forms.DataGridView();
+            this.mp1Label = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mp2DataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mp3DataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mp2Label = new System.Windows.Forms.Label();
+            this.mp3Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.macierzADataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzAGwiazdkaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzBGwiazdkaDataGridView)).BeginInit();
@@ -106,6 +136,12 @@ namespace EliminacjaGaussa
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1DataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2DataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp3DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // macierzADataGridView
@@ -243,6 +279,9 @@ namespace EliminacjaGaussa
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage5);
+            this.tabControl.Controls.Add(this.tabPage6);
+            this.tabControl.Controls.Add(this.tabPage7);
+            this.tabControl.Controls.Add(this.tabPage8);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -614,6 +653,86 @@ namespace EliminacjaGaussa
             this.tabPage5.Text = "Macierze Fs, Ft, D";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // fs3DValueLabel
+            // 
+            this.fs3DValueLabel.AutoSize = true;
+            this.fs3DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs3DValueLabel.Location = new System.Drawing.Point(210, 230);
+            this.fs3DValueLabel.Name = "fs3DValueLabel";
+            this.fs3DValueLabel.Size = new System.Drawing.Size(130, 25);
+            this.fs3DValueLabel.TabIndex = 15;
+            this.fs3DValueLabel.Text = "Fs 3 * D  value";
+            // 
+            // fs3DLabel
+            // 
+            this.fs3DLabel.AutoSize = true;
+            this.fs3DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs3DLabel.Location = new System.Drawing.Point(210, 205);
+            this.fs3DLabel.Name = "fs3DLabel";
+            this.fs3DLabel.Size = new System.Drawing.Size(79, 25);
+            this.fs3DLabel.TabIndex = 14;
+            this.fs3DLabel.Text = "Fs 3 * D";
+            // 
+            // fs2DValueLabel
+            // 
+            this.fs2DValueLabel.AutoSize = true;
+            this.fs2DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs2DValueLabel.Location = new System.Drawing.Point(210, 130);
+            this.fs2DValueLabel.Name = "fs2DValueLabel";
+            this.fs2DValueLabel.Size = new System.Drawing.Size(130, 25);
+            this.fs2DValueLabel.TabIndex = 13;
+            this.fs2DValueLabel.Text = "Fs 2 * D  value";
+            // 
+            // fs2DLabel
+            // 
+            this.fs2DLabel.AutoSize = true;
+            this.fs2DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs2DLabel.Location = new System.Drawing.Point(210, 105);
+            this.fs2DLabel.Name = "fs2DLabel";
+            this.fs2DLabel.Size = new System.Drawing.Size(79, 25);
+            this.fs2DLabel.TabIndex = 12;
+            this.fs2DLabel.Text = "Fs 2 * D";
+            // 
+            // fs1DValueLabel
+            // 
+            this.fs1DValueLabel.AutoSize = true;
+            this.fs1DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fs1DValueLabel.Location = new System.Drawing.Point(210, 36);
+            this.fs1DValueLabel.Name = "fs1DValueLabel";
+            this.fs1DValueLabel.Size = new System.Drawing.Size(130, 25);
+            this.fs1DValueLabel.TabIndex = 11;
+            this.fs1DValueLabel.Text = "Fs 1 * D  value";
+            // 
+            // fs1DLabel
+            // 
+            this.fs1DLabel.AutoSize = true;
+            this.fs1DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.fs1DLabel.Location = new System.Drawing.Point(210, 11);
+            this.fs1DLabel.Name = "fs1DLabel";
+            this.fs1DLabel.Size = new System.Drawing.Size(79, 25);
+            this.fs1DLabel.TabIndex = 10;
+            this.fs1DLabel.Text = "Fs 1 * D";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(13, 280);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 25);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "1  1  1";
+            // 
+            // ftLabel
+            // 
+            this.ftLabel.AutoSize = true;
+            this.ftLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ftLabel.Location = new System.Drawing.Point(13, 255);
+            this.ftLabel.Name = "ftLabel";
+            this.ftLabel.Size = new System.Drawing.Size(29, 25);
+            this.ftLabel.TabIndex = 8;
+            this.ftLabel.Text = "Ft";
+            // 
             // dLabel
             // 
             this.dLabel.AutoSize = true;
@@ -694,85 +813,248 @@ namespace EliminacjaGaussa
             this.fs1Label.TabIndex = 0;
             this.fs1Label.Text = "Fs 1";
             // 
-            // ftLabel
+            // tabPage6
             // 
-            this.ftLabel.AutoSize = true;
-            this.ftLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.ftLabel.Location = new System.Drawing.Point(13, 255);
-            this.ftLabel.Name = "ftLabel";
-            this.ftLabel.Size = new System.Drawing.Size(29, 25);
-            this.ftLabel.TabIndex = 8;
-            this.ftLabel.Text = "Ft";
+            this.tabPage6.Controls.Add(this.mp1Label);
+            this.tabPage6.Controls.Add(this.mp1DataGridView);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(911, 584);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Procesor 1";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // tabPage7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(13, 280);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 25);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "1  1  1";
+            this.tabPage7.Controls.Add(this.mp2Label);
+            this.tabPage7.Controls.Add(this.mp2DataGridView);
+            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(911, 584);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Procesor 2";
+            this.tabPage7.UseVisualStyleBackColor = true;
             // 
-            // fs1DValueLabel
+            // tabPage8
             // 
-            this.fs1DValueLabel.AutoSize = true;
-            this.fs1DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.fs1DValueLabel.Location = new System.Drawing.Point(210, 36);
-            this.fs1DValueLabel.Name = "fs1DValueLabel";
-            this.fs1DValueLabel.Size = new System.Drawing.Size(130, 25);
-            this.fs1DValueLabel.TabIndex = 11;
-            this.fs1DValueLabel.Text = "Fs 1 * D  value";
+            this.tabPage8.Controls.Add(this.mp3Label);
+            this.tabPage8.Controls.Add(this.mp3DataGridView);
+            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(911, 584);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Procesor 3";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // fs1DLabel
+            // mp1DataGridView
             // 
-            this.fs1DLabel.AutoSize = true;
-            this.fs1DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.fs1DLabel.Location = new System.Drawing.Point(210, 11);
-            this.fs1DLabel.Name = "fs1DLabel";
-            this.fs1DLabel.Size = new System.Drawing.Size(79, 25);
-            this.fs1DLabel.TabIndex = 10;
-            this.fs1DLabel.Text = "Fs 1 * D";
+            this.mp1DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mp1DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.mp1DataGridView.Location = new System.Drawing.Point(3, 24);
+            this.mp1DataGridView.Name = "mp1DataGridView";
+            this.mp1DataGridView.RowHeadersVisible = false;
+            this.mp1DataGridView.RowTemplate.Height = 25;
+            this.mp1DataGridView.Size = new System.Drawing.Size(354, 557);
+            this.mp1DataGridView.TabIndex = 0;
             // 
-            // fs2DValueLabel
+            // mp1Label
             // 
-            this.fs2DValueLabel.AutoSize = true;
-            this.fs2DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.fs2DValueLabel.Location = new System.Drawing.Point(210, 130);
-            this.fs2DValueLabel.Name = "fs2DValueLabel";
-            this.fs2DValueLabel.Size = new System.Drawing.Size(130, 25);
-            this.fs2DValueLabel.TabIndex = 13;
-            this.fs2DValueLabel.Text = "Fs 2 * D  value";
+            this.mp1Label.AutoSize = true;
+            this.mp1Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp1Label.Location = new System.Drawing.Point(0, 0);
+            this.mp1Label.Name = "mp1Label";
+            this.mp1Label.Size = new System.Drawing.Size(185, 21);
+            this.mp1Label.TabIndex = 1;
+            this.mp1Label.Text = "Macierz procesorowa 1";
             // 
-            // fs2DLabel
+            // Column1
             // 
-            this.fs2DLabel.AutoSize = true;
-            this.fs2DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.fs2DLabel.Location = new System.Drawing.Point(210, 105);
-            this.fs2DLabel.Name = "fs2DLabel";
-            this.fs2DLabel.Size = new System.Drawing.Size(79, 25);
-            this.fs2DLabel.TabIndex = 12;
-            this.fs2DLabel.Text = "Fs 2 * D";
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
             // 
-            // fs3DValueLabel
+            // Column2
             // 
-            this.fs3DValueLabel.AutoSize = true;
-            this.fs3DValueLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.fs3DValueLabel.Location = new System.Drawing.Point(210, 230);
-            this.fs3DValueLabel.Name = "fs3DValueLabel";
-            this.fs3DValueLabel.Size = new System.Drawing.Size(130, 25);
-            this.fs3DValueLabel.TabIndex = 15;
-            this.fs3DValueLabel.Text = "Fs 3 * D  value";
+            this.Column2.HeaderText = "X";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 50;
             // 
-            // fs3DLabel
+            // Column3
             // 
-            this.fs3DLabel.AutoSize = true;
-            this.fs3DLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.fs3DLabel.Location = new System.Drawing.Point(210, 205);
-            this.fs3DLabel.Name = "fs3DLabel";
-            this.fs3DLabel.Size = new System.Drawing.Size(79, 25);
-            this.fs3DLabel.TabIndex = 14;
-            this.fs3DLabel.Text = "Fs 3 * D";
+            this.Column3.HeaderText = "Y";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 50;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Takt";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 50;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "i1";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 50;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "i2";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 50;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "i3";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 50;
+            // 
+            // mp2DataGridView
+            // 
+            this.mp2DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mp2DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13});
+            this.mp2DataGridView.Location = new System.Drawing.Point(3, 24);
+            this.mp2DataGridView.Name = "mp2DataGridView";
+            this.mp2DataGridView.RowHeadersVisible = false;
+            this.mp2DataGridView.RowTemplate.Height = 25;
+            this.mp2DataGridView.Size = new System.Drawing.Size(354, 557);
+            this.mp2DataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "X";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Y";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Takt";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "i1";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.HeaderText = "i2";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "i3";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 50;
+            // 
+            // mp3DataGridView
+            // 
+            this.mp3DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mp3DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.mp3DataGridView.Location = new System.Drawing.Point(3, 24);
+            this.mp3DataGridView.Name = "mp3DataGridView";
+            this.mp3DataGridView.RowHeadersVisible = false;
+            this.mp3DataGridView.RowTemplate.Height = 25;
+            this.mp3DataGridView.Size = new System.Drawing.Size(354, 557);
+            this.mp3DataGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "X";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Y";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Takt";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "i1";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.HeaderText = "i2";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.HeaderText = "i3";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.Width = 50;
+            // 
+            // mp2Label
+            // 
+            this.mp2Label.AutoSize = true;
+            this.mp2Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp2Label.Location = new System.Drawing.Point(0, 0);
+            this.mp2Label.Name = "mp2Label";
+            this.mp2Label.Size = new System.Drawing.Size(185, 21);
+            this.mp2Label.TabIndex = 2;
+            this.mp2Label.Text = "Macierz procesorowa 2";
+            // 
+            // mp3Label
+            // 
+            this.mp3Label.AutoSize = true;
+            this.mp3Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp3Label.Location = new System.Drawing.Point(0, 0);
+            this.mp3Label.Name = "mp3Label";
+            this.mp3Label.Size = new System.Drawing.Size(185, 21);
+            this.mp3Label.TabIndex = 2;
+            this.mp3Label.Text = "Macierz procesorowa 3";
             // 
             // Menu
             // 
@@ -801,6 +1083,15 @@ namespace EliminacjaGaussa
             ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp3DataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -871,6 +1162,36 @@ namespace EliminacjaGaussa
         private System.Windows.Forms.Label fs2DLabel;
         private System.Windows.Forms.Label fs1DValueLabel;
         private System.Windows.Forms.Label fs1DLabel;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label mp1Label;
+        private System.Windows.Forms.DataGridView mp1DataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Label mp2Label;
+        private System.Windows.Forms.DataGridView mp2DataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Label mp3Label;
+        private System.Windows.Forms.DataGridView mp3DataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
     }
 }
 

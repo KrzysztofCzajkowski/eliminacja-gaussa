@@ -34,31 +34,31 @@ namespace EliminacjaGaussa
         /// <summary>
         /// Macierz D.
         /// </summary>
-        public static double[,] D = new double[3, 4]
+        public static int[,] D = new int[3, 4]
         {
             {1,0,0,1},
             {0,1,0,1},
             {0,0,1,0}
         };
-        public static double[,] Fs1 = new double[2, 3]
+        public static int[,] Fs1 = new int[2, 3]
         {
-            {-1,  0, 1},
-            {1, -1, 1}
+            {1, 0, 0},
+            {0, 1, 0}
         };
-        public static double[,] Fs1D = new double[2, 3];
+        public static int[,] Fs1D = new int[2, 3];
 
-        public static double[,] Fs2 = new double[2, 3]
+        public static int[,] Fs2 = new int[2, 3]
         {
             { -1,  1, 1},
             {-1, 1, 0}
         };
-        public static double[,] Fs2D = new double[2, 3];
-        public static double[,] Fs3 = new double[1, 3]
+        public static int[,] Fs2D = new int[2, 3];
+        public static int[,] Fs3 = new int[1, 3]
         {
             {-1, 0, 1}
         };
-        public static double[,] Fs3D = new double[2, 3];
-        public static double[,] Ft = new double[1, 3]
+        public static int[,] Fs3D = new int[2, 3];
+        public static int[,] Ft = new int[1, 3]
         {
             {1, 1, 1}
         };
@@ -66,11 +66,18 @@ namespace EliminacjaGaussa
         public static List<Wierzcholek> dataFlowVertices { get; set; }
         public static List<Krawedz> dataFlowEdges { get; set; }
 
+        public static List<EP> macierzProcesorowa1 { get; set; }
+        public static List<EP> macierzProcesorowa2 { get; set; }
+        public static List<EP> macierzProcesorowa3 { get; set; }
+
         public static void init()
         {
             dataFlowElements = new List<Element>();
             dataFlowVertices = new List<Wierzcholek>();
             dataFlowEdges = new List<Krawedz>();
+            macierzProcesorowa1 = new();
+            macierzProcesorowa2 = new();
+            macierzProcesorowa3 = new();
         }
 
         public static void clear()
@@ -78,6 +85,9 @@ namespace EliminacjaGaussa
             dataFlowElements.Clear();
             dataFlowVertices.Clear();
             dataFlowEdges.Clear();
+            macierzProcesorowa1.Clear();
+            macierzProcesorowa2.Clear();
+            macierzProcesorowa3.Clear();
         }
 
         /// <summary>
@@ -152,25 +162,25 @@ namespace EliminacjaGaussa
                     elementA = dataFlowElements[i - 1];
                     elementB = dataFlowElements[j - 1];
                     // krawędź w kierunku i1 i2
-                    if ((elementA.i1 == elementB.i1 - 1) && (elementA.i2 == elementB.i2 - 1) && (elementA.i3 == elementB.i3) && elementA.o4Prop.Equals(elementB.o3Prop))
+                    if ((elementA.i1 == elementB.i1 - 1) && (elementA.i2 == elementB.i2 - 1) && (elementA.i3 == elementB.i3) && (elementA.o4Prop.Equals(elementB.o3Prop) || elementA.o4Prop.Equals(elementB.o5Prop)))
                     {
                         dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I1I2));
                         id++;
                     }
                     // krawędź w kierunku i1
-                    else if ((elementA.i1 == elementB.i1 - 1) && (elementA.i2 == elementB.i2) && (elementA.i3 == elementB.i3) && elementA.o4Prop.Equals(elementB.o2Prop))
+                    else if ((elementA.i1 == elementB.i1 - 1) && (elementA.i2 == elementB.i2) && (elementA.i3 == elementB.i3) && (elementA.o4Prop.Equals(elementB.o2Prop) || elementA.o4Prop.Equals(elementB.o4Prop)))
                     {
                         dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I1));
                         id++;
                     }
                     // krawędź w kierunku i2
-                    else if ((elementA.i2 == elementB.i2 - 1) && (elementA.i1 == elementB.i1) && (elementA.i3 == elementB.i3) && elementA.o5Prop.Equals(elementB.o5Prop))
+                    else if ((elementA.i2 == elementB.i2 - 1) && (elementA.i1 == elementB.i1) && (elementA.i3 == elementB.i3) && (elementA.o3Prop.Equals(elementB.o3Prop) || elementA.o5Prop.Equals(elementB.o5Prop)))
                     {
                         dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I2));
                         id++;
                     }
                     // krawędź w kierunku i3
-                    else if ((elementA.i3 == elementB.i3 - 1) && (elementA.i1 == elementB.i1) && (elementA.i2 == elementB.i2) && elementA.o2Prop.Equals(elementB.o3Prop))
+                    else if ((elementA.i3 == elementB.i3 - 1) && (elementA.i1 == elementB.i1) && (elementA.i2 == elementB.i2) && (elementA.o2Prop.Equals(elementB.o3Prop) || elementA.o3Prop.Equals(elementB.o3Prop)))
                     {
                         dataFlowEdges.Add(new Krawedz(id, i, j, Kierunek.I3));
                         id++;
@@ -179,9 +189,16 @@ namespace EliminacjaGaussa
             }
         }
 
-        public static double[,] mnozeniePrzezD(double[,] macierz)
+        public static void wyznaczMacierzProcesorowe()
         {
-            double[,] wynik = new double[macierz.GetLength(0), 4];
+            macierzProcesorowa1 = mnozenieFs2D(Fs1);
+            macierzProcesorowa2 = mnozenieFs2D(Fs2);
+            macierzProcesorowa3 = mnozenieFs1D(Fs3);
+        }
+
+        public static int[,] mnozeniePrzezD(int[,] macierz)
+        {
+            int[,] wynik = new int[macierz.GetLength(0), 4];
             for (int i = 0; i < macierz.GetLength(0); i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -195,9 +212,9 @@ namespace EliminacjaGaussa
             return wynik;
         }
 
-    public static bool sprawdzMacierz(double[,] macierz)
+        public static bool sprawdzMacierz(int[,] macierz)
         {
-            double suma;
+            int suma;
             for (int i = 0; i < macierz.GetLength(0); i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -212,6 +229,49 @@ namespace EliminacjaGaussa
                 }
             }
             return true;
+        }
+
+        public static List<EP> mnozenieFs2D(int[,] fs)
+        {
+            List<EP> wynik = new();
+
+            int id = 1;
+            foreach (var item in dataFlowElements)
+            {
+                int x = 0;
+                int y = 0;
+
+                x += fs[0, 0] * item.i1;
+                x += fs[0, 1] * item.i2;
+                x += fs[0, 2] * item.i3;
+
+                y += fs[1, 0] * item.i1;
+                y += fs[1, 1] * item.i2;
+                y += fs[1, 2] * item.i3;
+
+                wynik.Add(new EP(id, x, y, item.i1 + item.i2 + item.i3, item.i1, item.i2, item.i3));
+                id++;
+            }
+            return wynik;
+        }
+
+        public static List<EP> mnozenieFs1D(int[,] fs)
+        {
+            List<EP> wynik = new();
+
+            int id = 1;
+            foreach (var item in dataFlowElements)
+            {
+                int x = 0;
+
+                x += fs[0,0] * item.i1;
+                x += fs[0,1] * item.i2;
+                x += fs[0,2] * item.i3;
+
+                wynik.Add(new EP(id, x, item.i1 + item.i2 + item.i3, item.i1, item.i2, item.i3));
+                id++;
+            }
+            return wynik;
         }
     }
 }
