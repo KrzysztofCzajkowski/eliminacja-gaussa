@@ -29,6 +29,18 @@ namespace EliminacjaGaussa
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.macierzADataGridView = new System.Windows.Forms.DataGridView();
             this.nLabel = new System.Windows.Forms.Label();
             this.nTextBox = new System.Windows.Forms.TextBox();
@@ -43,6 +55,8 @@ namespace EliminacjaGaussa
             this.mLabel = new System.Windows.Forms.Label();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listCheckbox = new System.Windows.Forms.CheckBox();
+            this.checkboxLabel = new System.Windows.Forms.Label();
             this.stopwatchTimeLabel = new System.Windows.Forms.Label();
             this.stopwatchLabel = new System.Windows.Forms.Label();
             this.zapiszBButton = new System.Windows.Forms.Button();
@@ -94,10 +108,12 @@ namespace EliminacjaGaussa
             this.fs1ValueLabel = new System.Windows.Forms.Label();
             this.fs1Label = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.mp1DataGridView = new System.Windows.Forms.DataGridView();
+            this.mp1PictureBox = new System.Windows.Forms.PictureBox();
+            this.mp1DetailsDataGridView = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mp1Label = new System.Windows.Forms.Label();
+            this.mp1DataGridView = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,6 +121,12 @@ namespace EliminacjaGaussa
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.mp2DetailsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mp2PictureBox = new System.Windows.Forms.PictureBox();
+            this.mp2Label = new System.Windows.Forms.Label();
             this.mp2DataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,6 +135,12 @@ namespace EliminacjaGaussa
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.mp3DetailsDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mp3PictureBox = new System.Windows.Forms.PictureBox();
+            this.mp3Label = new System.Windows.Forms.Label();
             this.mp3DataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -121,8 +149,6 @@ namespace EliminacjaGaussa
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mp2Label = new System.Windows.Forms.Label();
-            this.mp3Label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.macierzADataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzAGwiazdkaDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.macierzBGwiazdkaDataGridView)).BeginInit();
@@ -137,15 +163,25 @@ namespace EliminacjaGaussa
             ((System.ComponentModel.ISupportInitialize)(this.krawedzDataGridView)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1PictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1DetailsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp1DataGridView)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2DetailsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp2DataGridView)).BeginInit();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp3DetailsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp3PictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp3DataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // macierzADataGridView
             // 
+            this.macierzADataGridView.AllowUserToAddRows = false;
+            this.macierzADataGridView.AllowUserToDeleteRows = false;
+            this.macierzADataGridView.AllowUserToResizeColumns = false;
+            this.macierzADataGridView.AllowUserToResizeRows = false;
             this.macierzADataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.macierzADataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.macierzADataGridView.ColumnHeadersVisible = false;
@@ -187,6 +223,10 @@ namespace EliminacjaGaussa
             // 
             // macierzAGwiazdkaDataGridView
             // 
+            this.macierzAGwiazdkaDataGridView.AllowUserToAddRows = false;
+            this.macierzAGwiazdkaDataGridView.AllowUserToDeleteRows = false;
+            this.macierzAGwiazdkaDataGridView.AllowUserToResizeColumns = false;
+            this.macierzAGwiazdkaDataGridView.AllowUserToResizeRows = false;
             this.macierzAGwiazdkaDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.macierzAGwiazdkaDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.macierzAGwiazdkaDataGridView.ColumnHeadersVisible = false;
@@ -252,6 +292,10 @@ namespace EliminacjaGaussa
             // 
             // macierzMDataGridView
             // 
+            this.macierzMDataGridView.AllowUserToAddRows = false;
+            this.macierzMDataGridView.AllowUserToDeleteRows = false;
+            this.macierzMDataGridView.AllowUserToResizeColumns = false;
+            this.macierzMDataGridView.AllowUserToResizeRows = false;
             this.macierzMDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.macierzMDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.macierzMDataGridView.ColumnHeadersVisible = false;
@@ -282,6 +326,7 @@ namespace EliminacjaGaussa
             this.tabControl.Controls.Add(this.tabPage6);
             this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Controls.Add(this.tabPage8);
+            this.tabControl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tabControl.Location = new System.Drawing.Point(12, 12);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -290,6 +335,8 @@ namespace EliminacjaGaussa
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listCheckbox);
+            this.tabPage1.Controls.Add(this.checkboxLabel);
             this.tabPage1.Controls.Add(this.stopwatchTimeLabel);
             this.tabPage1.Controls.Add(this.stopwatchLabel);
             this.tabPage1.Controls.Add(this.zapiszBButton);
@@ -315,6 +362,27 @@ namespace EliminacjaGaussa
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Obliczenia";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listCheckbox
+            // 
+            this.listCheckbox.AutoSize = true;
+            this.listCheckbox.Checked = true;
+            this.listCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.listCheckbox.Location = new System.Drawing.Point(171, 567);
+            this.listCheckbox.Name = "listCheckbox";
+            this.listCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.listCheckbox.TabIndex = 20;
+            this.listCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // checkboxLabel
+            // 
+            this.checkboxLabel.AutoSize = true;
+            this.checkboxLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkboxLabel.Location = new System.Drawing.Point(14, 559);
+            this.checkboxLabel.Name = "checkboxLabel";
+            this.checkboxLabel.Size = new System.Drawing.Size(151, 25);
+            this.checkboxLabel.TabIndex = 19;
+            this.checkboxLabel.Text = "Wyświetlaj listy:";
             // 
             // stopwatchTimeLabel
             // 
@@ -815,6 +883,8 @@ namespace EliminacjaGaussa
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.mp1PictureBox);
+            this.tabPage6.Controls.Add(this.mp1DetailsDataGridView);
             this.tabPage6.Controls.Add(this.mp1Label);
             this.tabPage6.Controls.Add(this.mp1DataGridView);
             this.tabPage6.Location = new System.Drawing.Point(4, 24);
@@ -824,27 +894,62 @@ namespace EliminacjaGaussa
             this.tabPage6.Text = "Procesor 1";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // tabPage7
+            // mp1PictureBox
             // 
-            this.tabPage7.Controls.Add(this.mp2Label);
-            this.tabPage7.Controls.Add(this.mp2DataGridView);
-            this.tabPage7.Location = new System.Drawing.Point(4, 24);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(911, 584);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Procesor 2";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.mp1PictureBox.Image = global::EliminacjaGaussa.Properties.Resources.macierz1;
+            this.mp1PictureBox.Location = new System.Drawing.Point(386, 249);
+            this.mp1PictureBox.Name = "mp1PictureBox";
+            this.mp1PictureBox.Size = new System.Drawing.Size(522, 332);
+            this.mp1PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mp1PictureBox.TabIndex = 3;
+            this.mp1PictureBox.TabStop = false;
             // 
-            // tabPage8
+            // mp1DetailsDataGridView
             // 
-            this.tabPage8.Controls.Add(this.mp3Label);
-            this.tabPage8.Controls.Add(this.mp3DataGridView);
-            this.tabPage8.Location = new System.Drawing.Point(4, 24);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(911, 584);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Procesor 3";
-            this.tabPage8.UseVisualStyleBackColor = true;
+            this.mp1DetailsDataGridView.AllowUserToAddRows = false;
+            this.mp1DetailsDataGridView.AllowUserToDeleteRows = false;
+            this.mp1DetailsDataGridView.AllowUserToResizeColumns = false;
+            this.mp1DetailsDataGridView.AllowUserToResizeRows = false;
+            this.mp1DetailsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.mp1DetailsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mp1DetailsDataGridView.ColumnHeadersVisible = false;
+            this.mp1DetailsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col1,
+            this.col2});
+            this.mp1DetailsDataGridView.GridColor = System.Drawing.Color.White;
+            this.mp1DetailsDataGridView.Location = new System.Drawing.Point(386, 24);
+            this.mp1DetailsDataGridView.Name = "mp1DetailsDataGridView";
+            this.mp1DetailsDataGridView.ReadOnly = true;
+            this.mp1DetailsDataGridView.RowHeadersVisible = false;
+            this.mp1DetailsDataGridView.RowTemplate.Height = 25;
+            this.mp1DetailsDataGridView.Size = new System.Drawing.Size(356, 202);
+            this.mp1DetailsDataGridView.TabIndex = 2;
+            // 
+            // col1
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.col1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.col1.HeaderText = "";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            // 
+            // col2
+            // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.col2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.col2.HeaderText = "";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            // 
+            // mp1Label
+            // 
+            this.mp1Label.AutoSize = true;
+            this.mp1Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp1Label.Location = new System.Drawing.Point(0, 0);
+            this.mp1Label.Name = "mp1Label";
+            this.mp1Label.Size = new System.Drawing.Size(185, 21);
+            this.mp1Label.TabIndex = 1;
+            this.mp1Label.Text = "Macierz procesorowa 1";
             // 
             // mp1DataGridView
             // 
@@ -863,16 +968,6 @@ namespace EliminacjaGaussa
             this.mp1DataGridView.RowTemplate.Height = 25;
             this.mp1DataGridView.Size = new System.Drawing.Size(354, 557);
             this.mp1DataGridView.TabIndex = 0;
-            // 
-            // mp1Label
-            // 
-            this.mp1Label.AutoSize = true;
-            this.mp1Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.mp1Label.Location = new System.Drawing.Point(0, 0);
-            this.mp1Label.Name = "mp1Label";
-            this.mp1Label.Size = new System.Drawing.Size(185, 21);
-            this.mp1Label.TabIndex = 1;
-            this.mp1Label.Text = "Macierz procesorowa 1";
             // 
             // Column1
             // 
@@ -915,6 +1010,101 @@ namespace EliminacjaGaussa
             this.Column7.HeaderText = "i3";
             this.Column7.Name = "Column7";
             this.Column7.Width = 50;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.mp2DetailsDataGridView);
+            this.tabPage7.Controls.Add(this.mp2PictureBox);
+            this.tabPage7.Controls.Add(this.mp2Label);
+            this.tabPage7.Controls.Add(this.mp2DataGridView);
+            this.tabPage7.Location = new System.Drawing.Point(4, 24);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Size = new System.Drawing.Size(911, 584);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Procesor 2";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // mp2DetailsDataGridView
+            // 
+            this.mp2DetailsDataGridView.AllowUserToAddRows = false;
+            this.mp2DetailsDataGridView.AllowUserToDeleteRows = false;
+            this.mp2DetailsDataGridView.AllowUserToResizeColumns = false;
+            this.mp2DetailsDataGridView.AllowUserToResizeRows = false;
+            this.mp2DetailsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mp2DetailsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.mp2DetailsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mp2DetailsDataGridView.ColumnHeadersVisible = false;
+            this.mp2DetailsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22});
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mp2DetailsDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            this.mp2DetailsDataGridView.GridColor = System.Drawing.Color.White;
+            this.mp2DetailsDataGridView.Location = new System.Drawing.Point(386, 24);
+            this.mp2DetailsDataGridView.Name = "mp2DetailsDataGridView";
+            this.mp2DetailsDataGridView.ReadOnly = true;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mp2DetailsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.mp2DetailsDataGridView.RowHeadersVisible = false;
+            this.mp2DetailsDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp2DetailsDataGridView.RowTemplate.Height = 25;
+            this.mp2DetailsDataGridView.Size = new System.Drawing.Size(356, 202);
+            this.mp2DetailsDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dataGridViewTextBoxColumn21.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn21.HeaderText = "";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dataGridViewTextBoxColumn22.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn22.HeaderText = "";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // mp2PictureBox
+            // 
+            this.mp2PictureBox.Image = global::EliminacjaGaussa.Properties.Resources.macierz2;
+            this.mp2PictureBox.Location = new System.Drawing.Point(386, 249);
+            this.mp2PictureBox.Name = "mp2PictureBox";
+            this.mp2PictureBox.Size = new System.Drawing.Size(522, 332);
+            this.mp2PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mp2PictureBox.TabIndex = 5;
+            this.mp2PictureBox.TabStop = false;
+            // 
+            // mp2Label
+            // 
+            this.mp2Label.AutoSize = true;
+            this.mp2Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp2Label.Location = new System.Drawing.Point(0, 0);
+            this.mp2Label.Name = "mp2Label";
+            this.mp2Label.Size = new System.Drawing.Size(185, 21);
+            this.mp2Label.TabIndex = 2;
+            this.mp2Label.Text = "Macierz procesorowa 2";
             // 
             // mp2DataGridView
             // 
@@ -976,6 +1166,101 @@ namespace EliminacjaGaussa
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.Width = 50;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.mp3DetailsDataGridView);
+            this.tabPage8.Controls.Add(this.mp3PictureBox);
+            this.tabPage8.Controls.Add(this.mp3Label);
+            this.tabPage8.Controls.Add(this.mp3DataGridView);
+            this.tabPage8.Location = new System.Drawing.Point(4, 24);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Size = new System.Drawing.Size(911, 584);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Procesor 3";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // mp3DetailsDataGridView
+            // 
+            this.mp3DetailsDataGridView.AllowUserToAddRows = false;
+            this.mp3DetailsDataGridView.AllowUserToDeleteRows = false;
+            this.mp3DetailsDataGridView.AllowUserToResizeColumns = false;
+            this.mp3DetailsDataGridView.AllowUserToResizeRows = false;
+            this.mp3DetailsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mp3DetailsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.mp3DetailsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mp3DetailsDataGridView.ColumnHeadersVisible = false;
+            this.mp3DetailsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mp3DetailsDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            this.mp3DetailsDataGridView.GridColor = System.Drawing.Color.White;
+            this.mp3DetailsDataGridView.Location = new System.Drawing.Point(386, 24);
+            this.mp3DetailsDataGridView.Name = "mp3DetailsDataGridView";
+            this.mp3DetailsDataGridView.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mp3DetailsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.mp3DetailsDataGridView.RowHeadersVisible = false;
+            this.mp3DetailsDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp3DetailsDataGridView.RowTemplate.Height = 25;
+            this.mp3DetailsDataGridView.Size = new System.Drawing.Size(353, 202);
+            this.mp3DetailsDataGridView.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewTextBoxColumn23.HeaderText = "";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewTextBoxColumn24.HeaderText = "";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // mp3PictureBox
+            // 
+            this.mp3PictureBox.Image = global::EliminacjaGaussa.Properties.Resources.macierz3;
+            this.mp3PictureBox.Location = new System.Drawing.Point(386, 335);
+            this.mp3PictureBox.Name = "mp3PictureBox";
+            this.mp3PictureBox.Size = new System.Drawing.Size(522, 118);
+            this.mp3PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.mp3PictureBox.TabIndex = 5;
+            this.mp3PictureBox.TabStop = false;
+            // 
+            // mp3Label
+            // 
+            this.mp3Label.AutoSize = true;
+            this.mp3Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.mp3Label.Location = new System.Drawing.Point(0, 0);
+            this.mp3Label.Name = "mp3Label";
+            this.mp3Label.Size = new System.Drawing.Size(185, 21);
+            this.mp3Label.TabIndex = 2;
+            this.mp3Label.Text = "Macierz procesorowa 3";
+            // 
             // mp3DataGridView
             // 
             this.mp3DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1036,26 +1321,6 @@ namespace EliminacjaGaussa
             this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
             this.dataGridViewTextBoxColumn20.Width = 50;
             // 
-            // mp2Label
-            // 
-            this.mp2Label.AutoSize = true;
-            this.mp2Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.mp2Label.Location = new System.Drawing.Point(0, 0);
-            this.mp2Label.Name = "mp2Label";
-            this.mp2Label.Size = new System.Drawing.Size(185, 21);
-            this.mp2Label.TabIndex = 2;
-            this.mp2Label.Text = "Macierz procesorowa 2";
-            // 
-            // mp3Label
-            // 
-            this.mp3Label.AutoSize = true;
-            this.mp3Label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.mp3Label.Location = new System.Drawing.Point(0, 0);
-            this.mp3Label.Name = "mp3Label";
-            this.mp3Label.Size = new System.Drawing.Size(185, 21);
-            this.mp3Label.TabIndex = 2;
-            this.mp3Label.Text = "Macierz procesorowa 3";
-            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1085,12 +1350,18 @@ namespace EliminacjaGaussa
             this.tabPage5.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1DetailsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp1DataGridView)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2DetailsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2PictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp2DataGridView)).EndInit();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mp1DataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mp2DataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp3DetailsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mp3PictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mp3DataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -1192,6 +1463,20 @@ namespace EliminacjaGaussa
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridView mp1DetailsDataGridView;
+        private System.Windows.Forms.PictureBox mp1PictureBox;
+        private System.Windows.Forms.PictureBox mp2PictureBox;
+        private System.Windows.Forms.PictureBox mp3PictureBox;
+        private System.Windows.Forms.CheckBox listCheckbox;
+        private System.Windows.Forms.Label checkboxLabel;
+        private System.Windows.Forms.DataGridView mp2DetailsDataGridView;
+        private System.Windows.Forms.DataGridView mp3DetailsDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
     }
 }
 

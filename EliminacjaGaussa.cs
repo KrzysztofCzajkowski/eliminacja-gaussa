@@ -49,8 +49,8 @@ namespace EliminacjaGaussa
 
         public static int[,] Fs2 = new int[2, 3]
         {
-            { -1,  1, 1},
-            {-1, 1, 0}
+            {1, 0, 0},
+            {0, 0, 1}
         };
         public static int[,] Fs2D = new int[2, 3];
         public static int[,] Fs3 = new int[1, 3]
@@ -66,18 +66,25 @@ namespace EliminacjaGaussa
         public static List<Wierzcholek> dataFlowVertices { get; set; }
         public static List<Krawedz> dataFlowEdges { get; set; }
 
-        public static List<EP> macierzProcesorowa1 { get; set; }
-        public static List<EP> macierzProcesorowa2 { get; set; }
-        public static List<EP> macierzProcesorowa3 { get; set; }
+        public static List<OperacjaEP> operacjeMP1 { get; set; }
+        public static List<OperacjaEP> operacjeMP2 { get; set; }
+        public static List<OperacjaEP> operacjeMP3 { get; set; }
+
+        public static List<EP> MP1 { get; set; }
+        public static List<EP> MP2 { get; set; }
+        public static List<EP> MP3 { get; set; }
 
         public static void init()
         {
             dataFlowElements = new List<Element>();
             dataFlowVertices = new List<Wierzcholek>();
             dataFlowEdges = new List<Krawedz>();
-            macierzProcesorowa1 = new();
-            macierzProcesorowa2 = new();
-            macierzProcesorowa3 = new();
+            operacjeMP1 = new();
+            operacjeMP2 = new();
+            operacjeMP3 = new();
+            MP1 = new();
+            MP2 = new();
+            MP3 = new();
         }
 
         public static void clear()
@@ -85,9 +92,12 @@ namespace EliminacjaGaussa
             dataFlowElements.Clear();
             dataFlowVertices.Clear();
             dataFlowEdges.Clear();
-            macierzProcesorowa1.Clear();
-            macierzProcesorowa2.Clear();
-            macierzProcesorowa3.Clear();
+            operacjeMP1.Clear();
+            operacjeMP2.Clear();
+            operacjeMP3.Clear();
+            MP1.Clear();
+            MP2.Clear();
+            MP3.Clear();
         }
 
         /// <summary>
@@ -191,9 +201,57 @@ namespace EliminacjaGaussa
 
         public static void wyznaczMacierzProcesorowe()
         {
-            macierzProcesorowa1 = mnozenieFs2D(Fs1);
-            macierzProcesorowa2 = mnozenieFs2D(Fs2);
-            macierzProcesorowa3 = mnozenieFs1D(Fs3);
+            operacjeMP1 = mnozenieFs2D(Fs1);
+            operacjeMP2 = mnozenieFs2D(Fs2);
+            operacjeMP3 = mnozenieFs1D(Fs3);
+
+            int id = 1;
+            foreach (var item in operacjeMP1.Distinct(new EPComparator()))
+            {
+                MP1.Add(new EP(id, item.X, item.Y, Operacja.MNOZENIE));
+                id++;
+            }
+            foreach (var item in MP1)
+            {
+                foreach (var item2 in operacjeMP1.Where(x => (x.X == item.X && x.Y == item.Y)))
+                {
+                    item.Operacje.Add(item2);
+                    if (item2.OP == Operacja.DZIELENIE)
+                        item.OP = Operacja.DZIELENIE;
+                }
+            }
+
+            id = 1;
+            foreach (var item in operacjeMP2.Distinct(new EPComparator()))
+            {
+                MP2.Add(new EP(id, item.X, item.Y, Operacja.MNOZENIE));
+                id++;
+            }
+            foreach (var item in MP2)
+            {
+                foreach (var item2 in operacjeMP2.Where(x => (x.X == item.X && x.Y == item.Y)))
+                {
+                    item.Operacje.Add(item2);
+                    if (item2.OP == Operacja.DZIELENIE)
+                        item.OP = Operacja.DZIELENIE;
+                }
+            }
+
+            id = 1;
+            foreach (var item in operacjeMP3.Distinct(new EPComparator()))
+            {
+                MP3.Add(new EP(id, item.X, item.Y, Operacja.MNOZENIE));
+                id++;
+            }
+            foreach (var item in MP3)
+            {
+                foreach (var item2 in operacjeMP3.Where(x => (x.X == item.X && x.Y == item.Y)))
+                {
+                    item.Operacje.Add(item2);
+                    if (item2.OP == Operacja.DZIELENIE)
+                        item.OP = Operacja.DZIELENIE;
+                }
+            }
         }
 
         public static int[,] mnozeniePrzezD(int[,] macierz)
@@ -231,9 +289,9 @@ namespace EliminacjaGaussa
             return true;
         }
 
-        public static List<EP> mnozenieFs2D(int[,] fs)
+        public static List<OperacjaEP> mnozenieFs2D(int[,] fs)
         {
-            List<EP> wynik = new();
+            List<OperacjaEP> wynik = new();
 
             int id = 1;
             foreach (var item in dataFlowElements)
@@ -249,15 +307,15 @@ namespace EliminacjaGaussa
                 y += fs[1, 1] * item.i2;
                 y += fs[1, 2] * item.i3;
 
-                wynik.Add(new EP(id, x, y, item.i1 + item.i2 + item.i3, item.i1, item.i2, item.i3));
+                wynik.Add(new OperacjaEP(id, x, y, item.i1 + item.i2 + item.i3, item.i1, item.i2, item.i3, item.typOperacji));
                 id++;
             }
             return wynik;
         }
 
-        public static List<EP> mnozenieFs1D(int[,] fs)
+        public static List<OperacjaEP> mnozenieFs1D(int[,] fs)
         {
-            List<EP> wynik = new();
+            List<OperacjaEP> wynik = new();
 
             int id = 1;
             foreach (var item in dataFlowElements)
@@ -268,7 +326,7 @@ namespace EliminacjaGaussa
                 x += fs[0,1] * item.i2;
                 x += fs[0,2] * item.i3;
 
-                wynik.Add(new EP(id, x, item.i1 + item.i2 + item.i3, item.i1, item.i2, item.i3));
+                wynik.Add(new OperacjaEP(id, x, item.i1 + item.i2 + item.i3, item.i1, item.i2, item.i3, item.typOperacji));
                 id++;
             }
             return wynik;

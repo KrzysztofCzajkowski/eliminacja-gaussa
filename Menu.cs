@@ -93,7 +93,7 @@ namespace EliminacjaGaussa
         public void UpdateMP1List()
         {
             mp1DataGridView.Rows.Clear();
-            foreach (var element in EliminacjaGaussa.macierzProcesorowa1)
+            foreach (var element in EliminacjaGaussa.operacjeMP1)
             {
                 mp1DataGridView.Rows.Add(new string[]{
                     element.ID.ToString(),
@@ -110,7 +110,7 @@ namespace EliminacjaGaussa
         public void UpdateMP2List()
         {
             mp2DataGridView.Rows.Clear();
-            foreach (var element in EliminacjaGaussa.macierzProcesorowa2)
+            foreach (var element in EliminacjaGaussa.operacjeMP2)
             {
                 mp2DataGridView.Rows.Add(new string[]{
                     element.ID.ToString(),
@@ -127,7 +127,7 @@ namespace EliminacjaGaussa
         public void UpdateMP3List()
         {
             mp3DataGridView.Rows.Clear();
-            foreach (var element in EliminacjaGaussa.macierzProcesorowa3)
+            foreach (var element in EliminacjaGaussa.operacjeMP3)
             {
                 mp3DataGridView.Rows.Add(new string[]{
                     element.ID.ToString(),
@@ -141,6 +141,74 @@ namespace EliminacjaGaussa
             }
         }
 
+        public void UpdateMP1Table()
+        {
+            int maxTakt = 0;
+            foreach (var item in EliminacjaGaussa.operacjeMP1)
+            {
+                if(item.T > maxTakt)
+                    maxTakt = item.T;
+            }
+            var liczbaEP = EliminacjaGaussa.MP1.Count();
+            long liczbaMnozen = EliminacjaGaussa.MP1.Where(x => x.OP == Operacja.MNOZENIE).Count();
+            long liczbaDzielen = EliminacjaGaussa.MP1.Where(x => x.OP == Operacja.DZIELENIE).Count();
+            float T = (maxTakt + 24 * (2 * (float)EliminacjaGaussa.N - 3)) / 354;
+            float P = (float)EliminacjaGaussa.dataFlowElements.Count / (maxTakt * liczbaEP) * 100;
+            mp1DetailsDataGridView.Rows.Clear();
+            mp1DetailsDataGridView.Rows.Add(new string[] { "Liczba EP", $"{liczbaEP}" });
+            mp1DetailsDataGridView.Rows.Add(new string[] { "Czas CPU", stopwatchTimeLabel.Text });
+            mp1DetailsDataGridView.Rows.Add(new string[] { "Czas MP1", $"{T.ToString()} \u00B5s" });
+            mp1DetailsDataGridView.Rows.Add(new string[] { "Średnie obciążenie EP", $"{P} %" });
+            mp1DetailsDataGridView.Rows.Add(new string[] { "Liczba LUT", $"{liczbaMnozen * 1311 + liczbaDzielen * 1175}" });
+            mp1DetailsDataGridView.Rows.Add(new string[] { "Liczba DSP", $"{liczbaDzielen * 3}" });
+        }
+
+        public void UpdateMP2Table()
+        {
+            int maxTakt = 0;
+            foreach (var item in EliminacjaGaussa.operacjeMP2)
+            {
+                if (item.T > maxTakt)
+                    maxTakt = item.T;
+            }
+            var liczbaEP = EliminacjaGaussa.MP2.Count();
+            long liczbaMnozen = EliminacjaGaussa.MP2.Where(x => x.OP == Operacja.MNOZENIE).Count();
+            long liczbaDzielen = EliminacjaGaussa.MP2.Where(x => x.OP == Operacja.DZIELENIE).Count();
+            float T = (maxTakt + 24 * (2 * (float)EliminacjaGaussa.N - 1)) / 354;
+            float P = (float)EliminacjaGaussa.dataFlowElements.Count / (maxTakt * liczbaEP) * 100;
+            mp2DetailsDataGridView.Rows.Clear();
+            mp2DetailsDataGridView.Rows.Add(new string[] { "Liczba EP", $"{liczbaEP}" });
+            mp2DetailsDataGridView.Rows.Add(new string[] { "Czas CPU", stopwatchTimeLabel.Text });
+            mp2DetailsDataGridView.Rows.Add(new string[] { "Czas MP2", $"{T.ToString()} \u00B5s" });
+            mp2DetailsDataGridView.Rows.Add(new string[] { "Średnie obciążenie EP", $"{P} %" });
+            mp2DetailsDataGridView.Rows.Add(new string[] { "Liczba LUT", $"{liczbaMnozen * 1311 + liczbaDzielen * 1175}" });
+            mp2DetailsDataGridView.Rows.Add(new string[] { "Liczba DSP", $"{liczbaDzielen * 3}" });
+        }
+
+        public void UpdateMP3Table()
+        {
+            int maxTakt = 0;
+            foreach (var item in EliminacjaGaussa.operacjeMP3)
+            {
+                if (item.T > maxTakt)
+                    maxTakt = item.T;
+            }
+            var liczbaEP = EliminacjaGaussa.MP3.Count();
+            long liczbaMnozen = EliminacjaGaussa.MP3.Where(x => x.OP == Operacja.MNOZENIE).Count();
+            long liczbaDzielen = EliminacjaGaussa.MP3.Where(x => x.OP == Operacja.DZIELENIE).Count();
+            long taktyMnozenia = liczbaMnozen * 16;
+            long taktyDzielenia = liczbaDzielen * 2;
+            float T = (maxTakt + 24 * ((float)liczbaEP)) / 354;
+            float P = ((float)EliminacjaGaussa.dataFlowElements.Count / ((maxTakt) * liczbaEP)) * 100;
+            mp3DetailsDataGridView.Rows.Clear();
+            mp3DetailsDataGridView.Rows.Add(new string[] { "Liczba EP", $"{liczbaEP}" });
+            mp3DetailsDataGridView.Rows.Add(new string[] { "Czas CPU", stopwatchTimeLabel.Text });
+            mp3DetailsDataGridView.Rows.Add(new string[] { "Czas MP3", $"{T.ToString()} \u00B5s" });
+            mp3DetailsDataGridView.Rows.Add(new string[] { "Średnie obciążenie EP", $"{P} %" });
+            mp3DetailsDataGridView.Rows.Add(new string[] { "Liczba LUT", $"{liczbaMnozen * 1311 + liczbaDzielen * 1175}" });
+            mp3DetailsDataGridView.Rows.Add(new string[] { "Liczba DSP", $"{liczbaDzielen * 3}" });
+        }
+
         /// <summary>
         /// Metoda inicjalizująca Menu.
         /// </summary>
@@ -152,6 +220,11 @@ namespace EliminacjaGaussa
         /// </summary>
         private void ustawButton_Click(object sender, EventArgs e)
         {
+            macierzADataGridView.ReadOnly = false;
+            macierzMDataGridView.ReadOnly = false;
+            macierzAGwiazdkaDataGridView.ReadOnly = false;
+            macierzBGwiazdkaDataGridView.ReadOnly = false;
+
             EliminacjaGaussa.N = int.Parse(nTextBox.Text);
             EliminacjaGaussa.utworzMacierze();
             EliminacjaGaussa.clear();
@@ -172,32 +245,47 @@ namespace EliminacjaGaussa
         /// </summary>
         private void obliczButton_Click(object sender, EventArgs e)
         {
+            macierzADataGridView.ReadOnly = true;
+            macierzMDataGridView.ReadOnly = true;
+            macierzAGwiazdkaDataGridView.ReadOnly = true;
+            macierzBGwiazdkaDataGridView.ReadOnly = true;
             EliminacjaGaussa.clear();
             Stopwatch stoper = Stopwatch.StartNew();
             EliminacjaGaussa.oblicz();
             stoper.Stop();
             stopwatchTimeLabel.Text = (stoper.ElapsedMilliseconds.ToString() + " ms");
-            macierzAGwiazdkaDataGridView.Refresh();
-            macierzBGwiazdkaDataGridView.Refresh();
-            macierzMDataGridView.Refresh();
-            macierzAGwiazdkaDataGridView.AutoResizeColumns();
-            macierzBGwiazdkaDataGridView.AutoResizeColumns();
-            macierzMDataGridView.AutoResizeColumns();
-            elementDataGridView.AutoResizeColumns();
-            EliminacjaGaussa.sortuj();
-            UpdateElementList();
-            UpdateVertexList();
-            UpdateEdgeList();
+            if(listCheckbox.Checked)
+            {
+                macierzAGwiazdkaDataGridView.Refresh();
+                macierzBGwiazdkaDataGridView.Refresh();
+                macierzMDataGridView.Refresh();
+                macierzAGwiazdkaDataGridView.AutoResizeColumns();
+                macierzBGwiazdkaDataGridView.AutoResizeColumns();
+                macierzMDataGridView.AutoResizeColumns();
+                elementDataGridView.AutoResizeColumns();
+                EliminacjaGaussa.sortuj();
+                UpdateElementList();
+                UpdateVertexList();
+                UpdateEdgeList();
+            }
+            
             EliminacjaGaussa.Fs1D = EliminacjaGaussa.mnozeniePrzezD(EliminacjaGaussa.Fs1);
             EliminacjaGaussa.Fs2D = EliminacjaGaussa.mnozeniePrzezD(EliminacjaGaussa.Fs2);
             EliminacjaGaussa.Fs3D = EliminacjaGaussa.mnozeniePrzezD(EliminacjaGaussa.Fs3);
-            wypiszMacierze();
+            if(listCheckbox.Checked)
+                wypiszMacierze();
             if (EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs1) && EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs2) && EliminacjaGaussa.sprawdzMacierz(EliminacjaGaussa.Fs3))
             {
                 EliminacjaGaussa.wyznaczMacierzProcesorowe();
-                UpdateMP1List();
-                UpdateMP2List();
-                UpdateMP3List();
+                if(listCheckbox.Checked)
+                {
+                    UpdateMP1List();
+                    UpdateMP2List();
+                    UpdateMP3List();
+                }
+                UpdateMP1Table();
+                UpdateMP2Table();
+                UpdateMP3Table();
             }
             else
             {
@@ -210,6 +298,11 @@ namespace EliminacjaGaussa
             string filePath = string.Empty;
             string linia = string.Empty;
             string[] wiersz = null;
+
+            macierzADataGridView.ReadOnly = true;
+            macierzMDataGridView.ReadOnly = true;
+            macierzAGwiazdkaDataGridView.ReadOnly = true;
+            macierzBGwiazdkaDataGridView.ReadOnly = true;
 
             EliminacjaGaussa.clear();
 
